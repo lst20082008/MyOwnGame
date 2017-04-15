@@ -32,11 +32,13 @@ public class NetworkManager : MonoBehaviour {
         socket.On("player move", OnPlayerMove);
         socket.On("player turn", OnPlayerTurn);
         */
+        socket.On("register",OnRegister);
     }
 
-    public void JoinGame()
+    public void BtmRegister()
     {
-        StartCoroutine(ConnectToServer());
+        StartCoroutine(Register());
+        Debug.Log("按钮点击，协程执行");
     }
 
     #region Commands
@@ -53,14 +55,25 @@ public class NetworkManager : MonoBehaviour {
         //socket.Emit("play", new JSONObject(data));
         canvas.gameObject.SetActive(false);
     }
-
+    
+    IEnumerator Register()
+    {
+        yield return new WaitForSeconds(0.5f);
+        RegisterSendJSON registerSendJSON = new RegisterSendJSON(playerNameInput.text);
+        string data = JsonUtility.ToJson(registerSendJSON);
+        socket.Emit("register",new JSONObject(data));
+        Debug.Log("信息发送完毕:"+data);
+    }
+    
     #endregion
 
     #region Listening
 
-    void OnPlay(SocketIOEvent socketIOEvent)
+    void OnRegister(SocketIOEvent socketIOEvent)
     {
-
+        Debug.Log("进入OnRegister");
+        RegisterJSON registerJSON = RegisterJSON.CreateFromJSON(socketIOEvent.data.ToString());
+        Debug.Log(registerJSON.state);
     }
 
     #endregion
@@ -68,13 +81,24 @@ public class NetworkManager : MonoBehaviour {
     #region JSONClasses
 
     [Serializable]
-    public class PlayerJSON
+    public class RegisterSendJSON
     {
         public string name;
 
-        public PlayerJSON(string _name)
+        public RegisterSendJSON(string _name)
         {
             name = _name;
+        }
+    }
+
+    [Serializable]
+    public class RegisterJSON
+    {
+        public string state;
+
+        public static RegisterJSON CreateFromJSON(string data)
+        {
+            return JsonUtility.FromJson<RegisterJSON>(data);
         }
     }
 
