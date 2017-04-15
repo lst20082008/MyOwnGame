@@ -33,27 +33,27 @@ public class NetworkManager : MonoBehaviour {
         socket.On("player turn", OnPlayerTurn);
         */
         socket.On("register",OnRegister);
+        socket.On("log in",OnLogIn);
     }
 
     public void BtmRegister()
     {
         StartCoroutine(Register());
-        Debug.Log("按钮点击，协程执行");
     }
 
+    public void BtmLogIn()
+    {
+        StartCoroutine(ConnectToServer());
+    }
     #region Commands
 
     IEnumerator ConnectToServer()
     {
         yield return new WaitForSeconds(0.5f);
-        socket.Emit("player connect");
-        yield return new WaitForSeconds(1f);
         string playerName = playerNameInput.text;
-        //of course we don't have PlayerJSON now
-        //PlayerJSON playerJSON = new PlayerJSON(playerName, playerSpawnPoints, enemySpawnPoints);
-        //string data = JsonUtility.ToJson(playerJSON);
-        //socket.Emit("play", new JSONObject(data));
-        canvas.gameObject.SetActive(false);
+        LogInSendJSON logInSendJSON = new LogInSendJSON(playerName);
+        string data = JsonUtility.ToJson(logInSendJSON);
+        socket.Emit("log in",new JSONObject(data));
     }
     
     IEnumerator Register()
@@ -62,7 +62,6 @@ public class NetworkManager : MonoBehaviour {
         RegisterSendJSON registerSendJSON = new RegisterSendJSON(playerNameInput.text);
         string data = JsonUtility.ToJson(registerSendJSON);
         socket.Emit("register",new JSONObject(data));
-        Debug.Log("信息发送完毕:"+data);
     }
     
     #endregion
@@ -71,9 +70,20 @@ public class NetworkManager : MonoBehaviour {
 
     void OnRegister(SocketIOEvent socketIOEvent)
     {
-        Debug.Log("进入OnRegister");
         RegisterJSON registerJSON = RegisterJSON.CreateFromJSON(socketIOEvent.data.ToString());
-        Debug.Log(registerJSON.state);
+        if (registerJSON.state == "error")
+            playerNameInput.text = "账号已被注册";
+        else
+            playerNameInput.text = "账号成功注册";
+    }
+
+    void OnLogIn(SocketIOEvent socketIOEvent)
+    {
+        LogInJSON logInJSON = LogInJSON.CreateFromJSON(socketIOEvent.data.ToString());
+        if (logInJSON.state == "ok")
+            canvas.gameObject.SetActive(false);
+        else
+            playerNameInput.text = "无此账号!";
     }
 
     #endregion
@@ -99,6 +109,30 @@ public class NetworkManager : MonoBehaviour {
         public static RegisterJSON CreateFromJSON(string data)
         {
             return JsonUtility.FromJson<RegisterJSON>(data);
+        }
+    }
+
+    [Serializable]
+    public class LogInSendJSON
+    {
+        public string name;
+
+        public LogInSendJSON(string _name)
+        {
+            name = _name;
+        }
+    }
+
+    [Serializable]
+    public class LogInJSON
+    {
+        public string state;
+        public string name;
+        public List<int> item;
+
+        public static LogInJSON CreateFromJSON(string data)
+        {
+            return JsonUtility.FromJson<LogInJSON>(data);
         }
     }
 
