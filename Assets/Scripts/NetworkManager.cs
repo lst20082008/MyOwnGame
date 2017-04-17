@@ -14,6 +14,7 @@ public class NetworkManager : MonoBehaviour {
     public GameObject player;
     public GameObject spawnPoint;
     public GameObject mainCamera;
+    public Canvas magicCanvas;
 
     private void Awake()
     {
@@ -41,6 +42,7 @@ public class NetworkManager : MonoBehaviour {
         socket.On("player move", OnPlayerMove);
         socket.On("player turn", OnPlayerTurn);
         socket.On("other player disconnected", OnOtherPlayerDisconnect);
+        socket.On("use magic", OnUseMagic);
     }
 
     public void BtmRegister()
@@ -97,6 +99,12 @@ public class NetworkManager : MonoBehaviour {
         socket.Emit("player turn", new JSONObject(data));
     }
 
+    public void CommandUseMagic(int i)
+    {
+        string data = JsonUtility.ToJson(new UseMaigcSendJSON(i));
+        socket.Emit("use magic",new JSONObject(data));
+    }
+
     #endregion
 
     #region Listening
@@ -116,6 +124,7 @@ public class NetworkManager : MonoBehaviour {
         if (logInJSON.state == "ok")
         {
             canvas.gameObject.SetActive(false);
+            magicCanvas.gameObject.SetActive(true);
             CommandPlayerConnect();
         }
         else
@@ -195,6 +204,16 @@ public class NetworkManager : MonoBehaviour {
         if (p != null)
             p.transform.rotation = rotation;
     }
+    void OnUseMagic(SocketIOEvent socketIOEvent)
+    {
+        string data = socketIOEvent.data.ToString();
+        UseMaigcJSON useMagicJSON = UseMaigcJSON.CreateFromJSON(data);
+        Debug.Log("进入接听模式" +useMagicJSON.name+useMagicJSON.i);
+        GameObject p = GameObject.Find(useMagicJSON.name) as GameObject;
+        if (p != null)
+            p.GetComponent<UseMagics>().MagicBoom(useMagicJSON.i);
+    }
+
 
     void OnOtherPlayerDisconnect(SocketIOEvent socketIOEvent)
     {
@@ -313,6 +332,28 @@ public class NetworkManager : MonoBehaviour {
         }
     }
 
+    [Serializable]
+    public class UseMaigcSendJSON
+    {
+        public int i;
+
+        public UseMaigcSendJSON(int _i)
+        {
+            i = _i;
+        }
+    }
+
+    [Serializable]
+    public class UseMaigcJSON
+    {
+        public string name;
+        public int i;
+
+        public static UseMaigcJSON CreateFromJSON(string data)
+        {
+            return JsonUtility.FromJson<UseMaigcJSON>(data);
+        }
+    }
 
     #endregion
 }
