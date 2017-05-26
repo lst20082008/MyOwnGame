@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour {
     public float maximumY = 60F;
     public GameObject cmr;
     float rotationY = 0F;
+	public float movement = 3.0f;
 
     public bool isLocalPlayer = false;
     public string playerName;
     public GameObject cameraPosition;
+
 
     private Vector3 currentPosition;
     private Vector3 oldPosition;
@@ -35,8 +37,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (!isLocalPlayer)
             return;
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f;
-        var y = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * movement;
+        var y = Input.GetAxis("Vertical") * Time.deltaTime * movement;
 
         //根据鼠移的快慢(增量), 得相机左右旋的角度(理X)  
         float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
@@ -65,4 +67,5 @@ public class PlayerController : MonoBehaviour {
             oldRotation = currentRotation;
         }
     }
+
 }
