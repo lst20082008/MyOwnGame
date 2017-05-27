@@ -135,8 +135,20 @@ public class UseMagics : MonoBehaviour
 
 	public void MagicBoom(int i)
 	{
-        Debug.Log("进入发射"+timer[i]);
-		Instantiate (magics [i], this.transform.position, this.transform.rotation);
+        Debug.Log("进入发射"+i);
+        if (i == 1)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic2>().P = gameObject;
+            Debug.Log("赋值");
+        }
+        else if (i == 2)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic3>().Pl = gameObject;
+        }
+        else
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation);
+        }
 	}
 
     void CheckMagic(int i)

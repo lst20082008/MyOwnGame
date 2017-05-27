@@ -9,8 +9,7 @@ public class Magic2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		P = GameObject.Find ("mmp");
-		PlayerController m = P.GetComponent<PlayerController>();
+        PlayerController m = P.GetComponent<PlayerController>();
 		m.movement = m.movement * 2.0f;
 	}
 

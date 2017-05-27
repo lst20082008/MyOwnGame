@@ -9,12 +9,9 @@ public float position;
 
 // Use this for initialization
 void Start () {
-		Pl = GameObject.Find ("mmp");
-	PlayerController t = Pl.GetComponent<PlayerController>();
-		t.transform.Translate(Vector3.forward * 10);
-		/*
-        t.transform.position += t.transform.forward *10;
-		 * /
+        PlayerController t = Pl.GetComponent<PlayerController>();
+     t.transform.Translate(Vector3.forward * 10);
+    //t.transform.position += t.transform.forward *10;
  }
 
 }
