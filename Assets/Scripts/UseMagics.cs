@@ -33,7 +33,6 @@ public class UseMagics : MonoBehaviour
         {
             j = i + 1;
             string name = "Cd_" + j.ToString();
-            Debug.Log(name);
             cd[i] = GameObject.Find(name).GetComponent<Image>();
         }
 	}
@@ -139,11 +138,15 @@ public class UseMagics : MonoBehaviour
         if (i == 1)
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic2>().P = gameObject;
-            Debug.Log("赋值");
         }
         else if (i == 2)
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic3>().Pl = gameObject;
+        }
+        else if (i == 0)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic1>().P = gameObject;
+            Debug.Log(gameObject);
         }
         else
         {

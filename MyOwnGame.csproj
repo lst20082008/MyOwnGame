@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" />
     <Compile Include="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" />
     <Compile Include="Assets\Scripts\Magics\Magic2SpeedUp\Magic2.cs" />

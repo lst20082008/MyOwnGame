@@ -43,6 +43,7 @@ public class NetworkManager : MonoBehaviour {
         socket.On("player turn", OnPlayerTurn);
         socket.On("other player disconnected", OnOtherPlayerDisconnect);
         socket.On("use magic", OnUseMagic);
+        socket.On("health", OnHealth);
     }
 
     public void BtmRegister()
@@ -105,6 +106,13 @@ public class NetworkManager : MonoBehaviour {
         socket.Emit("use magic",new JSONObject(data));
     }
 
+    public void CommandHealthChange(GameObject playerFrom, GameObject playerTo, int healthChange)
+    {
+        Debug.Log("发送Health指令"+playerFrom.name+"血量减少"+healthChange);
+        HealthChangeJSON healthChangeJSON = new HealthChangeJSON(playerTo.name, healthChange, playerFrom.name);
+        socket.Emit("health", new JSONObject(JsonUtility.ToJson(healthChangeJSON)));
+    }
+
     #endregion
 
     #region Listening
@@ -151,6 +159,9 @@ public class NetworkManager : MonoBehaviour {
         Text playerName = t1.GetComponent<Text>();
         playerName.text = playerJSON.name;
         //改变p的名字,并且告诉对象不是localplayer等等，并且初始化血量
+        Health h = p.GetComponent<Health>();
+        h.currentHealth = playerJSON.health;
+        h.OnChangeHealth();
     }
 
     void OnPlay(SocketIOEvent socketIOEvent)
@@ -208,12 +219,22 @@ public class NetworkManager : MonoBehaviour {
     {
         string data = socketIOEvent.data.ToString();
         UseMaigcJSON useMagicJSON = UseMaigcJSON.CreateFromJSON(data);
-        Debug.Log("进入接听模式" +useMagicJSON.name+useMagicJSON.i);
         GameObject p = GameObject.Find(useMagicJSON.name) as GameObject;
         if (p != null)
             p.GetComponent<UseMagics>().MagicBoom(useMagicJSON.i);
     }
 
+    void OnHealth(SocketIOEvent socketIOEvent)
+    {
+        //get the name of player whose health change
+        string data = socketIOEvent.data.ToString();
+        UserHealthJSON userHealthJSON = UserHealthJSON.CreateFromJSON(data);
+        Debug.Log(userHealthJSON.name+"的血量变为"+userHealthJSON.health);
+        GameObject p = GameObject.Find(userHealthJSON.name);
+        Health h = p.GetComponent<Health>();
+        h.currentHealth = userHealthJSON.health;
+        h.OnChangeHealth();
+    }
 
     void OnOtherPlayerDisconnect(SocketIOEvent socketIOEvent)
     {
@@ -352,6 +373,33 @@ public class NetworkManager : MonoBehaviour {
         public static UseMaigcJSON CreateFromJSON(string data)
         {
             return JsonUtility.FromJson<UseMaigcJSON>(data);
+        }
+    }
+
+    [Serializable]
+    public class HealthChangeJSON
+    {
+        public string name;
+        public int healthChange;
+        public string from;
+
+        public HealthChangeJSON(string _name, int _healthChange, string _from)
+        {
+            name = _name;
+            healthChange = _healthChange;
+            from = _from;
+        }
+    }
+
+    [Serializable]
+    public class UserHealthJSON
+    {
+        public string name;
+        public int health;
+
+        public static UserHealthJSON CreateFromJSON(string data)
+        {
+            return JsonUtility.FromJson<UserHealthJSON>(data);
         }
     }
 

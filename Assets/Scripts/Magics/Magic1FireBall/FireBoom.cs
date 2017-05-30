@@ -4,13 +4,19 @@ using System.Collections;
 public class FireBoom : MonoBehaviour {
 	public float delayTime;
 	public float force;
-	public float damage;
+	public int damage;
 	public float radius;
 	public GameObject particular;
+    public GameObject P;
 
 	private float timer = 0f;
 
-	void Update()
+    void Start()
+    {
+        Debug.Log("进入FireBoom"+P);
+    }
+
+    void Update()
 	{
 		timer += Time.deltaTime;
 		if (timer >= delayTime) {
@@ -28,11 +34,9 @@ public class FireBoom : MonoBehaviour {
 				Rigidbody r = cols [i].GetComponent<Rigidbody> ();
 				if (r != null)
 					r.AddExplosionForce (force, transform.position,radius);
-                /*
 				Health h = cols [i].GetComponent<Health> ();
 				if (h != null)
-					h.DoDamage (damage);	
-                */
+					h.TakeDamage(P,damage);	
 			}
 		}
 		Instantiate (particular, transform.position, transform.rotation);
