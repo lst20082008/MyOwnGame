@@ -26,7 +26,7 @@ public class FireBoom : MonoBehaviour {
 
 	void Boom()
 	{
-		Collider[] cols = Physics.OverlapSphere(transform.position,2f);
+		Collider[] cols = Physics.OverlapSphere(transform.position,radius);
 		if (cols.Length > 0)
 		{
 			for (int i = 0; i < cols.Length; i++) 
