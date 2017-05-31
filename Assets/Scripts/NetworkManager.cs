@@ -15,6 +15,10 @@ public class NetworkManager : MonoBehaviour {
     public GameObject spawnPoint;
     public GameObject mainCamera;
     public Canvas magicCanvas;
+    public Text test1;
+    public Text test2;
+    public Text test3;
+    public Text test4;
 
     private void Awake()
     {
@@ -49,12 +53,23 @@ public class NetworkManager : MonoBehaviour {
     public void BtmRegister()
     {
         StartCoroutine(Register());
+        Debug.Log("按下注册按钮");
     }
 
     public void BtmLogIn()
     {
         StartCoroutine(ConnectToServer());
+        Debug.Log("按下登陆按钮");
     }
+
+    public void AddText(string addString)
+    {
+        test1.text = test2.text;
+        test2.text = test3.text;
+        test3.text = test4.text;
+        test4.text = addString;
+    }
+
     #region Commands
 
     IEnumerator ConnectToServer()
@@ -64,6 +79,7 @@ public class NetworkManager : MonoBehaviour {
         LogInSendJSON logInSendJSON = new LogInSendJSON(playerName);
         string data = JsonUtility.ToJson(logInSendJSON);
         socket.Emit("log in",new JSONObject(data));
+        Debug.Log("发送登陆信息"+data);
     }
     
     IEnumerator Register()
@@ -72,6 +88,7 @@ public class NetworkManager : MonoBehaviour {
         RegisterSendJSON registerSendJSON = new RegisterSendJSON(playerNameInput.text);
         string data = JsonUtility.ToJson(registerSendJSON);
         socket.Emit("register",new JSONObject(data));
+        Debug.Log("发送注册信息" + data);
     }
 
     IEnumerator WaitASecond()
@@ -162,6 +179,7 @@ public class NetworkManager : MonoBehaviour {
         Health h = p.GetComponent<Health>();
         h.currentHealth = playerJSON.health;
         h.OnChangeHealth();
+        AddText(playerJSON.name+"加入游戏");
     }
 
     void OnPlay(SocketIOEvent socketIOEvent)
@@ -188,6 +206,7 @@ public class NetworkManager : MonoBehaviour {
         Text playerName = t1.GetComponent<Text>();
         playerName.text = playerJSON.name;
         //改变p的名字等等，并且初始化血量
+        AddText("你加入游戏");
     }
 
     void OnPlayerMove(SocketIOEvent socketIOEvent)
@@ -221,7 +240,9 @@ public class NetworkManager : MonoBehaviour {
         UseMaigcJSON useMagicJSON = UseMaigcJSON.CreateFromJSON(data);
         GameObject p = GameObject.Find(useMagicJSON.name) as GameObject;
         if (p != null)
+        {
             p.GetComponent<UseMagics>().MagicBoom(useMagicJSON.i);
+        }
     }
 
     void OnHealth(SocketIOEvent socketIOEvent)
@@ -233,6 +254,10 @@ public class NetworkManager : MonoBehaviour {
         GameObject p = GameObject.Find(userHealthJSON.name);
         Health h = p.GetComponent<Health>();
         h.currentHealth = userHealthJSON.health;
+        if (h.currentHealth <= 0)
+        {
+            AddText("玩家"+userHealthJSON.name+"死亡");
+        }
         h.OnChangeHealth();
     }
 
@@ -242,6 +267,7 @@ public class NetworkManager : MonoBehaviour {
         string data = socketIOEvent.data.ToString();
         PlayerJSON playerJSON = PlayerJSON.CreateFromJSON(data);
         Destroy(GameObject.Find(playerJSON.name));
+        AddText(playerJSON.name + "离开游戏");
     }
 
     #endregion
