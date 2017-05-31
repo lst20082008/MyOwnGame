@@ -11,7 +11,8 @@ public float position;
 void Start () {
         PlayerController t = Pl.GetComponent<PlayerController>();
      t.transform.Translate(Vector3.forward * 10);
-    //t.transform.position += t.transform.forward *10;
+        //t.transform.position += t.transform.forward *10;
+        Destroy(this.gameObject);
  }
 
 }
