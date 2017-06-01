@@ -16,7 +16,7 @@ public class UseMagics : MonoBehaviour
 	private int count=0;
 	private int[] get = new int[2];
 	private float[] timer = new float[16];
-	private float[] coldTimer = {5f,6f,12f,52f,1f,12f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
+	private float[] coldTimer = {4f,8f,20f,52f,1f,12f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
 	private int j;
     private PlayerController pc;
 
