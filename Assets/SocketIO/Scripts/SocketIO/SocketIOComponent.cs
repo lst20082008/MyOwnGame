@@ -33,6 +33,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 using WebSocketSharp;
 using WebSocketSharp.Net;
 
@@ -48,6 +49,9 @@ namespace SocketIO
 		public float ackExpirationTime = 1800f;
 		public float pingInterval = 25f;
 		public float pingTimeout = 60f;
+        public InputField ipAddress;
+        public Canvas joinCanvas;
+        public Canvas connectCanvas;
 
 		public WebSocket socket { get { return ws; } }
 		public string sid { get; set; }
@@ -98,14 +102,14 @@ namespace SocketIO
 			ackList = new List<Ack>();
 			sid = null;
 			packetId = 0;
-
+            /*
 			ws = new WebSocket(url);
 			ws.OnOpen += OnOpen;
 			ws.OnMessage += OnMessage;
 			ws.OnError += OnError;
 			ws.OnClose += OnClose;
 			wsConnected = false;
-
+            */
 			eventQueueLock = new object();
 			eventQueue = new Queue<SocketIOEvent>();
 
@@ -123,6 +127,23 @@ namespace SocketIO
 		{
 			if (autoConnect) { Connect(); }
 		}
+
+        public void BtmConnect()
+        {
+            Debug.Log("进入按钮");
+            url = "ws://" + ipAddress.text +"/socket.io/?EIO=4&transport=websocket";
+            Debug.Log(url);
+            ws = new WebSocket(url);
+            ws.OnOpen += OnOpen;
+            ws.OnMessage += OnMessage;
+            ws.OnError += OnError;
+            ws.OnClose += OnClose;
+            wsConnected = false;
+            Connect();
+            Debug.Log("连接");
+            connectCanvas.gameObject.SetActive(false);
+            joinCanvas.gameObject.SetActive(true);
+        }
 
 		public void Update()
 		{
