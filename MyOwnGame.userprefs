@@ -2,10 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic4Rush\Magic4.cs">
     <Files>
-      <File FileName="Assets\Scripts\Magics\Magic4Rush\Rush.cs" Line="25" Column="20" />
-      <File FileName="Assets\Scripts\Magics\Magic4Rush\Magic4.cs" Line="17" Column="29" />
-      <File FileName="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" Line="12" Column="93" />
+      <File FileName="Assets\Scripts\Magics\Magic4Rush\Rush.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Magics\Magic4Rush\Magic4.cs" Line="28" Column="33" />
+      <File FileName="Assets\Scripts\Magics\Magic4Rush\RoseRotate.cs" Line="15" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

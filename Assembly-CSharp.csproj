@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Magics\Magic2SpeedUp\Magic2.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic3Flash\Magic3.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic4Rush\Magic4.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic4Rush\RoseRotate.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic4Rush\Rush.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

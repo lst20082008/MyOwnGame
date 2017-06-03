@@ -16,6 +16,7 @@ public class Magic4 : MonoBehaviour {
         timer = 0f;
 		Vector3 position = this.transform.position + this.transform.forward*distenceA + this.transform.right*distenceB + this.transform.up*distenceC;
 		Instantiate (stickle, position, this.transform.rotation);
+
 	}
 
     private void Update()
