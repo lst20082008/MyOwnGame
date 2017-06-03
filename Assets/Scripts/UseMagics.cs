@@ -135,14 +135,22 @@ public class UseMagics : MonoBehaviour
 	public void MagicBoom(int i)
 	{
         Debug.Log("进入发射"+i);
-		if (i == 1) {
-			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic2> ().P = gameObject;
-		} else if (i == 2) {
-			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic3> ().Pl = gameObject;
-		} else if (i == 0) {
-			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic1> ().P = gameObject;
-			Debug.Log (gameObject);
-		} 
+        if (i == 1)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic2>().P = gameObject;
+        }
+        else if (i == 2)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic3>().Pl = gameObject;
+        }
+        else if (i == 0)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic1>().P = gameObject;
+        }
+        else if (i == 3)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic4>().P = gameObject;
+        }
         else
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation);
