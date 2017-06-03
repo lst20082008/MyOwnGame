@@ -7,6 +7,8 @@ public class Rush : MonoBehaviour {
     public float latestTime;
     public GameObject P;
     public int damage;
+	public float movement;
+	public float coefficient;
 
     private float timer;
 
@@ -28,7 +30,9 @@ public class Rush : MonoBehaviour {
         if (other.tag == "Player")
         {
             Health h = other.gameObject.GetComponent<Health>();
-            h.TakeDamage(P, damage);
+			PlayerController m = P.GetComponent<PlayerController>();
+			damage = damage * (int)(m.movement * coefficient);
+			h.TakeDamage(P, damage);
         }
     }
 }
