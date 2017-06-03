@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 guid: 90d64e7c5adceea468acb34402fe8f0d
-timeCreated: 1496418030
+timeCreated: 1496459597
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - showckwave: {fileID: 1092217719152326, guid: 34ba42ed8b079b14c95fa529549790d9,
+      type: 2}
+  - stickle: {fileID: 1801229729389594, guid: beed1347a7e05fb4fa2f7542fa1e1f15, type: 2}
+  - P: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
