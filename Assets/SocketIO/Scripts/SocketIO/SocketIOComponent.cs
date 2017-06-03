@@ -95,6 +95,7 @@ namespace SocketIO
 
 		public void Awake()
 		{
+			ipAddress.text = "45.77.29.39:3000";
 			encoder = new Encoder();
 			decoder = new Decoder();
 			parser = new Parser();
