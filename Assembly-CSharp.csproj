@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3A35C2BC-59E4-D68B-E15D-ADA02B73CD27}</ProjectGuid>
+    <ProjectGuid>{B1526F5F-7DA1-16C9-AD11-E66847F6055D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,10 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic2SpeedUp\Magic2.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic3Flash\Magic3.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic4Rush\Magic4.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic4Rush\Rush.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UseMagics.cs" />

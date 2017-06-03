@@ -16,7 +16,7 @@ public class UseMagics : MonoBehaviour
 	private int count=0;
 	private int[] get = new int[2];
 	private float[] timer = new float[16];
-	private float[] coldTimer = {4f,8f,20f,52f,1f,12f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
+	private float[] coldTimer = {4f,8f,20f,5f,1f,12f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
 	private int j;
     private PlayerController pc;
 
@@ -135,19 +135,14 @@ public class UseMagics : MonoBehaviour
 	public void MagicBoom(int i)
 	{
         Debug.Log("进入发射"+i);
-        if (i == 1)
-        {
-            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic2>().P = gameObject;
-        }
-        else if (i == 2)
-        {
-            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic3>().Pl = gameObject;
-        }
-        else if (i == 0)
-        {
-            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic1>().P = gameObject;
-            Debug.Log(gameObject);
-        }
+		if (i == 1) {
+			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic2> ().P = gameObject;
+		} else if (i == 2) {
+			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic3> ().Pl = gameObject;
+		} else if (i == 0) {
+			Instantiate (magics [i], this.transform.position, this.transform.rotation).GetComponent<Magic1> ().P = gameObject;
+			Debug.Log (gameObject);
+		} 
         else
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation);
