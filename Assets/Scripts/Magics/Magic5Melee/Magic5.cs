@@ -10,7 +10,7 @@ public class Magic5 : MonoBehaviour {
 	void Start()
 	{
 		Vector3 position = this.transform.position + this.transform.forward*distence;
-		Instantiate(lightning, position, this.transform.rotation).GetComponent<FireBoom>().P = P;
+		Instantiate(lightning, position, this.transform.rotation).GetComponent<Lightning>().P = P;
 		Destroy (this.gameObject);
 	}
 

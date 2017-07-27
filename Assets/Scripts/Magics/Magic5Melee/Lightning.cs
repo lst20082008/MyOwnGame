@@ -33,13 +33,11 @@ public class Lightning : MonoBehaviour {
 			for (int i = 0; i < cols.Length; i++) 
 			{
 				Rigidbody r = cols [i].GetComponent<Rigidbody> ();
-				if (r != LocalPlayer) {
 					if (r != null)
 						r.AddExplosionForce (force, transform.position, radius);
 					Health h = cols [i].GetComponent<Health> ();
-					if (h != null)
+					if (h != null && r.gameObject != P)
 						h.TakeDamage (P, damage);	
-				}
 			}
 		}
 		Destroy (this.gameObject);

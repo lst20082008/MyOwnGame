@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 0947d7c585aedb8428ebffa23b4e8c65
-timeCreated: 1501160053
+timeCreated: 1501167526
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lightning: {instanceID: 0}
+  - P: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
