@@ -1,9 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic4Rush\Rush.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UseMagics.cs">
     <Files>
-      <File FileName="Assets\Scripts\Magics\Magic4Rush\Rush.cs" Line="34" Column="54" />
-      <File FileName="Assets\Scripts\Magics\Magic2SpeedUp\Magic2.cs" Line="15" Column="34" />
+      <File FileName="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" Line="46" Column="1" />
+      <File FileName="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" Line="5" Column="25" />
+      <File FileName="Assets\Scripts\Magics\Magic5Melee\Lightning.cs" Line="9" Column="22" />
+      <File FileName="Assets\Scripts\Magics\Magic5Melee\Magic5.cs" Line="14" Column="29" />
+      <File FileName="Assets\Scripts\UseMagics.cs" Line="19" Column="45" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="16" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
