@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     public bool isLocalPlayer = false;
     public string playerName;
     public GameObject cameraPosition;
+    public bool canRotate = true;
 
 
     private Vector3 currentPosition;
@@ -48,7 +49,8 @@ public class PlayerController : MonoBehaviour {
         rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
         //体置一下相机角度  
         cmr.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
-        transform.localEulerAngles = new Vector3(0, rotationX, 0);
+        if (canRotate) 
+            transform.localEulerAngles = new Vector3(0, rotationX, 0);
 
         transform.Translate(x, 0, y);
         currentPosition = transform.position;

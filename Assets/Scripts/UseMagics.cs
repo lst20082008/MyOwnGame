@@ -16,7 +16,7 @@ public class UseMagics : MonoBehaviour
 	private int count=0;
 	private int[] get = new int[2];
 	private float[] timer = new float[16];
-	private float[] coldTimer = {4f,8f,20f,5f,1f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
+	private float[] coldTimer = {4f,8f,20f,5f,0.7f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f,5f};
 	private int j;
     private PlayerController pc;
 
@@ -151,10 +151,14 @@ public class UseMagics : MonoBehaviour
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic4>().P = gameObject;
         }
-		else if (i == 4)
-		{
-			Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic5>().P = gameObject;
-		}
+        else if (i == 4)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic5>().P = gameObject;
+        }
+        else if (i == 5)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic6>().P = gameObject;
+        }
         else
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation);

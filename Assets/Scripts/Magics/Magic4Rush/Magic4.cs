@@ -11,22 +11,26 @@ public class Magic4 : MonoBehaviour {
 	public float distanceD;
 	public float useTime;
 	public GameObject P;
+    public GameObject rightHand;
+    public Vector3 force;
 	private float timer = 0f;
 
 	void Start () {
+        rightHand = P.transform.Find("Righthand").gameObject;
         timer = 0f;
 		Vector3 position = this.transform.position + this.transform.forward*distanceA + this.transform.right*distanceB + this.transform.up*distanceC;
 		Quaternion rotation = Quaternion.Euler(392+transform.eulerAngles.x,90 + transform.eulerAngles.y, -180 + transform.eulerAngles.z);
-		Instantiate (stickle, position, rotation);
-
-	}
+		Instantiate (stickle, rightHand.transform);
+        force = P.transform.TransformVector(force);
+        P.GetComponent<Rigidbody>().AddForce(force);
+    }
 
     private void Update()
     {
         timer += Time.deltaTime;
         if (timer >= useTime)
         {
-			Instantiate(shockwave,transform.position+transform.forward*distanceD,transform.rotation).GetComponent<Rush>().P = P;
+			Instantiate(shockwave,P.transform.position+P.transform.forward*distanceD,GameObject.FindWithTag("MainCamera").transform.rotation).GetComponent<Rush>().P = P;
             Destroy(gameObject);
         }
     }
