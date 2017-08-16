@@ -159,6 +159,10 @@ public class UseMagics : MonoBehaviour
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic6>().P = gameObject;
         }
+        else if (i == 6)
+        {
+            Instantiate(magics[i], this.transform.position, this.transform.rotation).GetComponent<Magic7>().P = gameObject;
+        }
         else
         {
             Instantiate(magics[i], this.transform.position, this.transform.rotation);
