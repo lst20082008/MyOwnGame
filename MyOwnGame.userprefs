@@ -1,13 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\UseMagics.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic8Baguette\Magic8.cs">
     <Files>
-      <File FileName="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" Line="46" Column="1" />
-      <File FileName="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" Line="5" Column="25" />
-      <File FileName="Assets\Scripts\Magics\Magic5Melee\Lightning.cs" Line="9" Column="22" />
-      <File FileName="Assets\Scripts\Magics\Magic5Melee\Magic5.cs" Line="14" Column="29" />
-      <File FileName="Assets\Scripts\UseMagics.cs" Line="19" Column="45" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="16" Column="5" />
+      <File FileName="Assets\Scripts\UseMagics.cs" Line="19" Column="105" />
+      <File FileName="Assets\Scripts\Magics\Magic8Baguette\Magic8.cs" Line="17" Column="19" />
+      <File FileName="Assets\Scripts\Magics\Magic8Baguette\Baguette01.cs" Line="16" Column="100" />
+      <File FileName="Assets\Scripts\Magics\Magic7Claw\Magic7.cs" Line="9" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
