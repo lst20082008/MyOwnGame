@@ -15,7 +15,7 @@ public class Magic8 : MonoBehaviour {
 		rand = 0;
 		Vector3 position = this.transform.position + this.transform.forward * distence;
 		if (rand == 0) {
-			Instantiate (baguetteF1, rightHand.transform).GetComponent<Baguette01> ().P = P;
+			Instantiate (baguetteF1, rightHand.transform).AddComponent<Baguette01> ().P = P;
 			Destroy (gameObject);
 		}
 	}

@@ -1,13 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic8Baguette\Magic8.cs">
-    <Files>
-      <File FileName="Assets\Scripts\UseMagics.cs" Line="19" Column="105" />
-      <File FileName="Assets\Scripts\Magics\Magic8Baguette\Magic8.cs" Line="17" Column="19" />
-      <File FileName="Assets\Scripts\Magics\Magic8Baguette\Baguette01.cs" Line="16" Column="100" />
-      <File FileName="Assets\Scripts\Magics\Magic7Claw\Magic7.cs" Line="9" Column="17" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
