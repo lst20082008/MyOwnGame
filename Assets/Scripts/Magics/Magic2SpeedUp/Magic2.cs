@@ -12,7 +12,7 @@ public class Magic2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         PlayerController m = P.GetComponent<PlayerController>();
-		m.movement = m.movement * 2.0f;
+		m.movement = m.movement * 3.0f;
         time = 0f;
 	}
 
@@ -21,7 +21,7 @@ public class Magic2 : MonoBehaviour {
         time += Time.deltaTime;
         if (time >= coldtime)
         {
-            P.GetComponent<PlayerController>().movement /= 2.0f;
+            P.GetComponent<PlayerController>().movement /= 3.0f;
             time = 0f;
             Destroy(this.gameObject);
         }

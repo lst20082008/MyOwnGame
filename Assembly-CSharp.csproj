@@ -110,7 +110,9 @@
      <Compile Include="Assets\Scripts\Magics\Magic7Claw\Claw.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic7Claw\Magic7.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic8Baguette\Baguette01.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic8Baguette\Baguette02.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic8Baguette\Magic8.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic9RedLikeRoses\Magic9.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\UseMagics.cs" />
