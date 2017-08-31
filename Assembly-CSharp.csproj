@@ -96,6 +96,8 @@
      <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
      <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic10LetTheTunaGo\LetTheTunaGo.cs" />
+     <Compile Include="Assets\Scripts\Magics\Magic10LetTheTunaGo\Magic10.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic1FireBall\FireBoom.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic1FireBall\Magic1.cs" />
      <Compile Include="Assets\Scripts\Magics\Magic2SpeedUp\Magic2.cs" />

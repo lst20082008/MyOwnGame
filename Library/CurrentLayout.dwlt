@@ -110,7 +110,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 495}
   m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
-  controlID: 1869
+  controlID: 17548
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 1870
+  controlID: 17549
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 495}
   m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
-  controlID: 1930
+  controlID: 17500
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,9 +393,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 17.758913, y: -5.104011, z: -43.134865}
+    m_Target: {x: 6.7309217, y: 2.0730448, z: -20.740862}
     speed: 2
-    m_Value: {x: 17.758913, y: -5.104011, z: -43.134865}
+    m_Value: {x: 6.7309217, y: 2.0730448, z: -20.740862}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -418,13 +418,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.010889941, y: 0.9786299, z: -0.05378046, w: 0.1981734}
+    m_Target: {x: -0.004899278, y: 0.9866376, z: 0.030200655, w: 0.16003227}
     speed: 2
-    m_Value: {x: 0.010889941, y: 0.9786298, z: -0.05378046, w: 0.1981734}
+    m_Value: {x: -0.004899278, y: 0.9866376, z: 0.030200653, w: 0.16003227}
   m_Size:
-    m_Target: 64.842964
+    m_Target: 25.047144
     speed: 2
-    m_Value: 64.842964
+    m_Value: 25.047144
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -489,9 +489,9 @@ MonoBehaviour:
     height: 402
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c62b0000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: e6fbffff00000000
+    m_ExpandedIDs: 9e3fffffa06bffffe6fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -551,18 +551,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/Magics
+    - Assets/Prefabs/Magics/MagicObjects
   m_ViewMode: 1
   m_StartGridSize: 66
   m_LastFolders:
-  - Assets/Prefabs/Magics
+  - Assets/Prefabs/Magics/MagicObjects
   m_LastFoldersGridSize: 66
   m_LastProjectPath: M:\moe\game make\unity\Mygame\MyOwnGame
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 170}
-    m_SelectedIDs: 8e290000
-    m_LastClickedID: 10638
+    scrollPos: {x: 0, y: 186}
+    m_SelectedIDs: f2260000
+    m_LastClickedID: 9970
     m_ExpandedIDs: 00000000582600002e2700007028000098280000ba280000ce2800008e290000a2290000a6290000b4290000942a00001e2b00006a2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 18260000b025000000000000f4a3ffffa2260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -643,7 +643,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 300}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 66
   m_DirectoriesAreaWidth: 163
 --- !u!114 &18
