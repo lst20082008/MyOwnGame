@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic10LetTheTunaGo\Magic10.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Magics\Magic10LetTheTunaGo\LetTheTunaGo.cs">
     <Files>
-      <File FileName="Assets\Scripts\Magics\Magic10LetTheTunaGo\Magic10.cs" Line="6" Column="2" />
-      <File FileName="Assets\Scripts\Magics\Magic10LetTheTunaGo\LetTheTunaGo.cs" Line="14" Column="48" />
+      <File FileName="Assets\Scripts\Magics\Magic10LetTheTunaGo\LetTheTunaGo.cs" Line="27" Column="49" />
+      <File FileName="Assets\Scripts\Magics\Magic4Rush\Rush.cs" Line="33" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

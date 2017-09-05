@@ -7,11 +7,13 @@ public class LetTheTunaGo : MonoBehaviour {
 	public Vector3 force = new Vector3(0, 200, 0);
 	public int damage = 20;
 	private Vector3 turn;
+	private Vector3 back;
 
 
 	void Start()
 	{
 		turn = new Vector3(0f, 0f, Random.Range(0, 35));
+		back = new Vector3 (0f, 180f, 0f);
 	}
 
 	void Update()
@@ -22,8 +24,10 @@ public class LetTheTunaGo : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag("Player"))
-			other.GetComponent<Health>().TakeDamage(P, damage);
+		if (other.gameObject.CompareTag ("Lightning"))
+			transform.Rotate (back);
+		else  if (other.gameObject.CompareTag("Player"))
+			    other.GetComponent<Health>().TakeDamage(P, damage);
 	}
 }
 	
