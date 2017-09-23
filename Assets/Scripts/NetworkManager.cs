@@ -232,7 +232,10 @@ public class NetworkManager : MonoBehaviour {
             return;
         GameObject p = GameObject.Find(playerJSON.name) as GameObject;
         if (p != null)
-            p.transform.rotation = rotation;
+        {
+            p.GetComponent<PlayerController>().cmrRotation = rotation;
+            p.transform.rotation = Quaternion.Euler(0f, playerJSON.rotation[1], 0f);
+        }
     }
     void OnUseMagic(SocketIOEvent socketIOEvent)
     {

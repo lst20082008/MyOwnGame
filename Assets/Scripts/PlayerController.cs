@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public string playerName;
     public GameObject cameraPosition;
     public bool canRotate = true;
+    public Quaternion cmrRotation;
 
 
     private Vector3 currentPosition;
@@ -29,8 +30,9 @@ public class PlayerController : MonoBehaviour {
     {
         oldPosition = transform.position;
         currentPosition = oldPosition;
-        oldRotation = transform.rotation;
+        oldRotation = cmr.transform.rotation;
         currentRotation = oldRotation;
+        cmrRotation = currentRotation;
     }
 	
 	// Update is called once per frame
@@ -54,7 +56,8 @@ public class PlayerController : MonoBehaviour {
 
         transform.Translate(x, 0, y);
         currentPosition = transform.position;
-        currentRotation = transform.rotation;
+        currentRotation = cmr.transform.rotation;
+        cmrRotation = currentRotation;
         if (currentPosition != oldPosition)
         {
             //TODO Network
@@ -65,7 +68,7 @@ public class PlayerController : MonoBehaviour {
         if (currentRotation != oldRotation)
         {
             //TODO Network
-            NetworkManager.instance.GetComponent<NetworkManager>().CommandTurn(transform.rotation);
+            NetworkManager.instance.GetComponent<NetworkManager>().CommandTurn(currentRotation);
             oldRotation = currentRotation;
         }
     }
